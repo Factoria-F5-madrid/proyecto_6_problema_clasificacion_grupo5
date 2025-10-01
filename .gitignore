@@ -43,9 +43,9 @@ env.bak/
 venv.bak/
 
 # Dataframes / datasets
-data/*.csv
-data/processed/*.csv
-!data/life_expectancy_data.csv
+# data/*.csv                    # COMENTA estas líneas
+# data/processed/*.csv          # COMENTA estas líneas
+!data/airline_passenger_satisfaction.csv
 !data/processed/features_scaled.csv
 !data/processed/features_no_scaling.csv
 !data/processed/target_y.csv
