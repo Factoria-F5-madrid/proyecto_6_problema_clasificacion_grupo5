@@ -1,0 +1,1 @@
+# archivo para almacenar predicciones/feedback en una base de datos.

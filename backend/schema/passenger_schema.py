@@ -1,0 +1,1 @@
+# archivo para pydantic para la entidad pasajero1

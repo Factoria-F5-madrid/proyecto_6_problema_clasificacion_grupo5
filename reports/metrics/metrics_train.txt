@@ -1,0 +1,19 @@
+(este archivo se elminara , es para que se suba la carpeta)
+  
+  métricas cuantitativas
+
+  📊 ¿Qué guardar aquí?
+
+Métricas de clasificación (accuracy, precision, recall, f1, AUC, etc.) en formato JSON/CSV → fáciles de leer por humanos y scripts.
+
+Visualizaciones de performance del modelo:
+
+Matriz de confusión
+
+Curva ROC / Precision-Recall
+
+Feature importance
+
+Learning curves (para ver overfitting)
+
+Notas de experimentos (opcional): por ejemplo, experiment_log.md donde apuntas “Modelo v1 = RandomForest, max_depth=10, accuracy=0.87, overfitting=3%”.

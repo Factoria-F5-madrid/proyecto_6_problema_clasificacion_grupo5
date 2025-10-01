@@ -1,0 +1,1 @@
+# define la ruta /predict y conecta con prediction_controller

@@ -1,0 +1,1 @@
+en esta carpeta estaran los datos listos para modelo (este archivo se eliminará es solo para que se suba la carpeta)

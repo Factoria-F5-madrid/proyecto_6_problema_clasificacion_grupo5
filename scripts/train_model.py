@@ -1,0 +1,1 @@
+# entrena con datos procesados y guarda .pkl a la carpeta models
