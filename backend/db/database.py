@@ -23,3 +23,6 @@ async def get_session():
             yield session
         finally:
             await session.close()
+
+# Base class for models
+Base = declarative_base()
