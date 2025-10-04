@@ -70,4 +70,5 @@ src/**/__pycache__/
 *.jpg
 *.jpeg
 
-
+Nota.txt
+requirements.txt
