@@ -1,0 +1,20 @@
+python -m venv .venv
+source .venv/Scripts/activate
+
+pip install streamlit pandas altair plotly joblib
+
+streamlit = framework UI.
+
+pandas = manejo de dataset / EDA.
+
+altair o plotly = gráficos (usé altair en los ejemplos y plotly para una matriz de confusión opcional).
+
+joblib = sólo si vas a cargar un modelo .joblib (opcional; lo instalamos por si el equipo te lo entrega).
+
+main.py
+
+---------------------------------------
+-Cosas a añadir
+    • Añadir pipeline → real predict
+    • Contador de errores mas exlpicito
+    • Guardar predicciones
