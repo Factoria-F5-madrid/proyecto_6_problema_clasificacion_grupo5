@@ -1,0 +1,158 @@
+/* assets/styles.css */
+
+/* VARIABLES */
+:root{
+  --accent: #2d6cdf;          /* color botón / highlight */
+  --nav-bg: rgba(14, 102, 235, 0.12);
+  --nav-backdrop: rgba(5, 69, 141, 0.08);
+  --text-main: #14c095;
+  --text-hero: #14c095;
+  --muted: rgba(15, 82, 182, 0.6);
+  --radius: 10px;
+  --glass-border: rgba(42, 4, 179, 0.08);
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Asegura que la app ocupe toda la pantalla y uso del background */
+html, body [data-testid="stAppViewContainer"] {
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: var(--font);
+}
+
+/* Hero full-screen: usa la imagen hero.png en /assets */
+[data-testid="stAppViewContainer"] > .main > .block-container {
+  padding: 0 !important;
+}
+
+/* Establecer fondo grande */
+[data-testid="stAppViewContainer"] {
+  background-image: url('/assets/hero.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* overlay suave para oscurar la imagen y hacer legible el texto */
+.hero-overlay {
+  width:100%;
+  min-height:100vh;
+  background: linear-gradient(rgba(8, 84, 247, 0.02), rgba(34, 5, 199, 0.02));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+/* Barra superior (navbar) */
+.topnav {
+  width: calc(100% - 80px);
+  margin: 28px 40px 0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  background: var(--nav-backdrop);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--glass-border);
+}
+
+/* brand (izq) */
+.brand {
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.brand img { height:36px; }
+
+/* nav links (centrados) */
+.nav-links {
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+  margin-left:24px;
+  color: rgba(11,27,51,0.55);
+  font-weight:600;
+}
+.nav-links .active { color: white; text-decoration: underline; }
+
+/* CTA nav (derecha) */
+.nav-cta {
+  background: linear-gradient(180deg, var(--accent), #1b57c9);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight:700;
+  border: none;
+  cursor:pointer;
+}
+
+/* CONTENEDOR CENTRAL con el texto grande + botón */
+.hero-center {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: 120px 20px;
+  gap:18px;
+  width:100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: white;
+  text-shadow: 0 6px 24px rgba(6, 37, 95, 0.35);
+}
+
+/* headline grande */
+.hero-title {
+  font-size:72px;
+  line-height:1;
+  margin:0;
+  font-weight:700;
+  letter-spacing:-1.5px;
+  color: #ffffff;
+}
+
+/* subtitle italic */
+.hero-sub {
+  font-size:44px;
+  font-style: italic;
+  margin-top: -6px;
+  color: rgba(255,255,255,0.92);
+  opacity: 0.95;
+}
+
+/* small description */
+.hero-desc {
+  max-width:760px;
+  color: rgba(255,255,255,0.85);
+  font-size:16px;
+}
+
+/* CTA grande centro */
+.hero-cta {
+  margin-top:16px;
+  background: linear-gradient(180deg, rgba(2, 111, 255, 0.12), rgba(2, 183, 255, 0.06));
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  padding: 18px 36px;
+  border-radius: 12px;
+  font-weight:700;
+  font-size:18px;
+  color: white;
+  cursor:pointer;
+  box-shadow: 0 8px 30px rgba(4, 50, 255, 0.35);
+}
+
+/* responsive */
+@media (max-width:900px) {
+  .hero-title { font-size:38px; }
+  .hero-sub { font-size:22px; }
+  .topnav { margin: 12px 16px 0 16px; padding:10px; }
+  .hero-center { padding: 80px 14px; }
+}
