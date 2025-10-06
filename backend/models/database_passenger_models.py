@@ -23,9 +23,6 @@ class AirlinePassengerSatisfaction(Base):
     cleanliness = Column(Float, nullable=True)
     baggage_handling = Column(Float, nullable=True)
     checkin_service = Column(Float, nullable=True)
-
+    
     satisfaction = Column(String, nullable=True)
-
-    features_json = Column(Text, nullable=True)
-    model_version = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
