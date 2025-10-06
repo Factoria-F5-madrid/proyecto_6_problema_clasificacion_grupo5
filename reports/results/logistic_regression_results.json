@@ -1,0 +1,15 @@
+{
+    "model": "Logistic Regression",
+    "best_params": {
+        "C": 0.01,
+        "penalty": "l2",
+        "solver": "liblinear"
+    },
+    "metrics": {
+        "Accuracy": 0.8698811414272652,
+        "Precision": 0.8422596414991852,
+        "Recall": 0.8609661299278178,
+        "F1-score": 0.8515101592531577,
+        "ROC-AUC": 0.9281392866734663
+    }
+}

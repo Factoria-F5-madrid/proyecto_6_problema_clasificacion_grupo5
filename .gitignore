@@ -46,9 +46,10 @@ venv.bak/
 # data/*.csv                    # COMENTA estas líneas
 # data/processed/*.csv          # COMENTA estas líneas
 !data/airline_passenger_satisfaction.csv
-!data/processed/features_scaled.csv
-!data/processed/features_no_scaling.csv
-!data/processed/target_y.csv
+!data/processed/cleaned_airline_passenger_satisfaction.csv
+!data/processed/X_t*.csv
+!data/processed/y_t*.csv
+!data/processed/model_comparison_data.csv
 
 
 
