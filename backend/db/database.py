@@ -7,14 +7,17 @@ load_dotenv()
 
 # aqui leemos el BASE_URL del archivo .env
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/postgres")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine = create_async_engine(DATABASE_URL, echo=True)
+engine = create_async_engine(DATABASE_URL, echo=True , future=True)
 
 AsyncSessionLocal = sessionmaker(
     bind=engine,
     class_=AsyncSession,
-    expire_on_commit=False
+    expire_on_commit=False,
+    autoflush=False,
+    future=True
+
 )
 
 async def get_session():
