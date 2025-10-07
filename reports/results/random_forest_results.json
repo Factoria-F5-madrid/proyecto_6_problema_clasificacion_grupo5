@@ -1,0 +1,17 @@
+{
+    "model": "Random Forest",
+    "best_params": {
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 1,
+        "min_samples_split": 5,
+        "n_estimators": 100
+    },
+    "metrics": {
+        "Accuracy": 0.9615514171599057,
+        "Precision": 0.9641402714932127,
+        "Recall": 0.9464741810105497,
+        "F1-score": 0.9552255533762959,
+        "ROC-AUC": 0.9940394489474447
+    }
+}

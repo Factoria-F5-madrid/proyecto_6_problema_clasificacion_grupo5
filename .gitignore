@@ -4,6 +4,7 @@
 # Distribution / packaging 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 *.pyo
@@ -18,7 +19,11 @@ dist/
 # Scrapy stuff:
 .scrapy
 
-
+# ==== MODELOS Y RESULTADOS (solo en futuro) ====
+# models/
+# reports/results/
+# *.pkl
+# *.json
 
 # --- Jupyter / VSCode / OS ---
 .ipynb_checkpoints/
@@ -46,9 +51,10 @@ venv.bak/
 # data/*.csv                    # COMENTA estas líneas
 # data/processed/*.csv          # COMENTA estas líneas
 !data/airline_passenger_satisfaction.csv
-!data/processed/features_scaled.csv
-!data/processed/features_no_scaling.csv
-!data/processed/target_y.csv
+!data/processed/cleaned_airline_passenger_satisfaction.csv
+!data/processed/X_t*.csv
+!data/processed/y_t*.csv
+!data/processed/model_comparison_data.csv
 
 
 
@@ -69,5 +75,6 @@ src/**/__pycache__/
 *.png
 *.jpg
 *.jpeg
+*.gif
 
 
