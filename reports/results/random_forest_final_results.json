@@ -1,11 +1,11 @@
 {
     "model": "Random Forest",
     "metrics": {
-        "Accuracy": 0.9616957797988547,
-        "Precision": 0.9644675794953038,
-        "Recall": 0.9464741810105497,
-        "F1-score": 0.9553861674700146,
-        "ROC-AUC": 0.994044352624146
+        "Accuracy": 0.3227948606900534,
+        "Precision": 0.3137312555130844,
+        "Recall": 0.47395891171571347,
+        "F1-score": 0.3775487637666416,
+        "ROC-AUC": 0.32868426904286263
     },
     "best_params": {
         "bootstrap": true,
