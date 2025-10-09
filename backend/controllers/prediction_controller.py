@@ -1,8 +1,8 @@
 # backend/controllers/prediction_controller.py
 import asyncio
 from fastapi import APIRouter, Request, HTTPException
-from schema.passenger_schema import PassengerInput, PredictionResponse
-from repositories.prediction_repo import save_prediction
+from backend.schema.passenger_schema import PassengerInput, PredictionResponse
+from backend.repositories.prediction_repo import save_prediction
 
 router = APIRouter()
 

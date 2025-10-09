@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, Text
 from sqlalchemy.sql import func
-from db.database import Base
+from backend.db.database import Base
 from .enums import SqlGenderTypeEnum, SqlClassTypeEnum
 
 class AirlinePassengerSatisfaction(Base):

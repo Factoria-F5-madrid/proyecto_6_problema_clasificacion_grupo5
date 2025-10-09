@@ -1,7 +1,7 @@
 # backend/repositories/prediction_repo.py
 import json
-from db.database import AsyncSessionLocal
-from models.database_passenger_models import AirlinePassengerSatisfaction
+from backend.db.database import AsyncSessionLocal
+from backend.models.database_passenger_models import AirlinePassengerSatisfaction
 
 async def save_prediction(input_data: dict, predicted_label: str, predicted_proba: float = None, model_version: str = None):
     """

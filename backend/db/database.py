@@ -7,7 +7,7 @@ load_dotenv()
 
 # aqui leemos el BASE_URL del archivo .env
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+asyncpg://postgres:root@127.0.0.1:5432/airline_satisfaction_db")
 
 engine = create_async_engine(DATABASE_URL, echo=True , future=True)
 

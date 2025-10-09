@@ -5,9 +5,9 @@ import asyncio
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # import the route that aggregates the controller router
-from routes.prediction_routes import router as prediction_routes
+from backend.routes.prediction_routes import router as prediction_routes
 # import your init_db coroutine (archivo init_db.py en la raiz de backend)
-from init_db import init_db as run_init_db
+from backend.init_db import init_db as run_init_db
 
 APP_TITLE = "Airline Passenger Satisfaction API"
 

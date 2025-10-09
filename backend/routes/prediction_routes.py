@@ -1,6 +1,6 @@
 # backend/routes/prediction_routes.py
 from fastapi import APIRouter
-from controllers.prediction_controller import router as prediction_router
+from backend.controllers.prediction_controller import router as prediction_router
 
 router = APIRouter()
 # mount controller routes at root of this router; main.py includes this under /api

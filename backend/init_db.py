@@ -1,6 +1,6 @@
 import asyncio
 import os
-from db.database import engine, Base
+from backend.db.database import engine, Base
 
 async def init_db():
     """
