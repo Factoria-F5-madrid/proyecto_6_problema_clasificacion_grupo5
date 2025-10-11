@@ -1,0 +1,33 @@
+# You & Airveryone – Setup Instructions
+
+## Requirements
+- Python 3.10+
+- Node.js (LTS version from https://nodejs.org)
+- pip
+
+## Commands
+
+# Clone repo and enter project
+git clone <repo_url>
+cd Proyecto_6/
+
+# Create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate    # Windows
+# or
+source .venv/bin/activate # macOS / Linux
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Build frontend
+cd client
+npm install
+npm run build
+cd ..
+
+# Run backend
+python main.py
+
+# Open in browser
+http://localhost:5173/
