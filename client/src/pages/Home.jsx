@@ -1,6 +1,5 @@
 // client/src/pages/Home.jsx
 import React from "react";
-import hero from "../assets/hero.png";
 
 /*
  Home page: hero area + short intro + quick links to pages.
@@ -10,23 +9,28 @@ export default function Home() {
   return (
     <section className="home">
       <div className="hero">
+        {/* Bloque de texto */}
         <div className="hero-text">
-          <h1 className="hero-title">You &amp; Airveryone</h1>
-          <p className="hero-sub">For a better flight for you &amp; Airveryone.</p>
-          <p className="lead">
-            We measure passenger comfort and predict how to improve a flight experience.
-            Try our demo or explore the dataset.
-          </p>
+          <h1 className="hero-title">
+            <span className="script">You &amp; Airveryone</span>
+            <br />
+            <span className="bold">TRAVEL</span>
+          </h1>
 
-          <div className="hero-ctas">
-            <a href="/predict" className="btn">Try the Predictor</a>
-            <a href="/database" className="btn btn-ghost">View Database</a>
-          </div>
+           <div className="cta-combined">
+            <a href="/predict" className="btn start-btn">Try your predict</a>
+            <span className="cta-url">www.youandairveryone.com</span>
+           </div>
         </div>
 
-        <div className="hero-image" aria-hidden>
-          <img src={hero} alt="Passengers relaxing on a calm flight (illustration)" />
-        </div>
+        {/* Imagen del avión */}
+        {/* <div className="hero-image" aria-hidden>
+          <img
+            src={hero}
+            alt="Airplane wing flying over the clouds"
+            className="hero-img"
+          />
+        </div> */}
       </div>
     </section>
   );

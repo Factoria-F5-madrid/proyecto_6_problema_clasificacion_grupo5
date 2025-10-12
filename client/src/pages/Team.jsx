@@ -13,22 +13,22 @@ export default function Team() {
 
       <div className="team-grid">
         <div className="team-card">
-          <h4>Member 1</h4>
+          <h4>Teo Ramos</h4>
           <p>Frontend lead — UI, UX, visual design.</p>
         </div>
 
         <div className="team-card">
-          <h4>Member 2</h4>
+          <h4>Yeder Pimentel</h4>
           <p>Backend & model integration.</p>
         </div>
 
         <div className="team-card">
-          <h4>Member 3</h4>
+          <h4>Alfonso</h4>
           <p>Data scientist — dataset & modelling.</p>
         </div>
 
         <div className="team-card">
-          <h4>Member 4</h4>
+          <h4>Maribel Gutierrez</h4>
           <p>Project manager & testing.</p>
         </div>
       </div>

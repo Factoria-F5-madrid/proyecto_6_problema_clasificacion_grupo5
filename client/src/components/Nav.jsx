@@ -2,6 +2,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+
 /*
  Nav component: shows brand + navigation links.
  Uses a distinct logo font for the brand (see index.css for font import).
