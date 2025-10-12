@@ -1,15 +1,9 @@
 // client/src/services/predictPassengerServices.js
 
-// Replace base URL if your backend runs elsewhere
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "http://localhost:8000"; // ajusta si tu backend está en otro host/puerto
 
-/*
- predictPassenger:
- - sends JSON POST to /predict
- - expects JSON response like { satisfaction: "satisfied", probability: 0.9 }
-*/
 export async function predictPassenger(data) {
-  const res = await fetch(`${BASE_URL}/predict`, {
+  const res = await fetch(`${BASE_URL}/api/predict`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -17,7 +11,14 @@ export async function predictPassenger(data) {
 
   if (!res.ok) {
     const txt = await res.text();
-    throw new Error(txt || "Prediction request failed");
+    // try parse json error
+    try {
+      const j = JSON.parse(txt);
+      throw new Error(j.detail ? JSON.stringify(j.detail) : txt);
+    } catch {
+      throw new Error(txt || "Prediction request failed");
+    }
   }
+
   return res.json();
 }
