@@ -61,9 +61,9 @@ async def on_startup():
         # Calcular ruta por defecto relativa al project-root/models/...
         backend_dir = Path(__file__).resolve().parent  # backend/
         project_root = backend_dir.parent
-        default_pkl = project_root / "models" / "decision_tree_model.pkl"
-        default_joblib = project_root / "models" / "decision_tree_model.joblib"
-        default_joblib_alt = project_root / "models" / "decision_tree_model.joblib.pkl"
+        default_pkl = project_root / "models" / "deployed" / "model_random_forest_gridsearchcv_deployed.pkl"
+        default_joblib = project_root / "models" / "deployed" / "model_random_forest_gridsearchcv_deployed.joblib.pkl"
+        default_joblib_alt = project_root / "models" / "deployed" / "model_random_forest_gridsearchcv_deployed.joblib"
 
         # Allow overriding via env var MODEL_PATH (absolute or relative to project root)
         env_path = os.getenv("MODEL_PATH")

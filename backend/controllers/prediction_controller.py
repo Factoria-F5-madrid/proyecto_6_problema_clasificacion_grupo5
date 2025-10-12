@@ -6,39 +6,43 @@ from backend.repositories.prediction_repo import save_prediction
 
 router = APIRouter()
 
+# 🔢 Ajusta este orden al feature_order del modelo entrenado
+FEATURE_ORDER = [
+    "type_of_travel",
+    "inflight_wifi_service",
+    "customer_type",
+    "online_boarding",
+    "checkin_service",
+    "baggage_handling",
+    "seat_comfort",
+    "inflight_service",
+    "cleanliness",
+    "class_type"
+]
+
 def preprocess_input(payload: dict) -> list:
     """
-    Return features in the exact order used at training.
+    Extrae las features en el orden exacto esperado por el modelo.
+    Si tu modelo fue entrenado con variables numéricas, convierte los valores categóricos.
     """
-    # ejemplo de orden: ajusta a tu X_train.columns
-    features = [
-        payload.get("gender"),
-        payload.get("customer_type"),
-        payload.get("age") or 0,
-        payload.get("type_of_travel"),
-        payload.get("class") or payload.get("class_type"),
-        payload.get("flight_distance") or 0.0,
-        payload.get("inflight_wifi_service") or 0.0,
-        payload.get("departure_arrival_time_convenient") or 0.0,
-        payload.get("ease_of_online_booking") or 0.0,
-        payload.get("gate_location") or 0.0,
-        payload.get("food_and_drink") or 0.0,
-        payload.get("online_boarding") or 0.0,
-        payload.get("seat_comfort") or 0.0,
-        payload.get("inflight_entertainment") or 0.0,
-        payload.get("on_board_service") or 0.0,
-        payload.get("leg_room_service") or 0.0,
-        payload.get("baggage_handling") or 0.0,
-        payload.get("checkin_service") or 0.0,
-        payload.get("inflight_service") or 0.0,
-        payload.get("cleanliness") or 0.0,
-        payload.get("Departure Delay in Minutes") or payload.get("departure_delay_minutes") or 0.0,
-        payload.get("Arrival Delay in Minutes") or payload.get("arrival_delay_minutes") or 0.0
-    ]
+    def encode_value(val):
+        if isinstance(val, str):
+            val_lower = val.strip().lower()
+            mapping = {
+                "male": 0,
+                "female": 1,
+                "business travel": 1,
+                "personal travel": 0,
+                "loyal customer": 1,
+                "disloyal customer": 0,
+                "eco": 0,
+                "eco plus": 1,
+                "business": 2
+            }
+            return mapping.get(val_lower, 0.0)
+        return val or 0.0
 
-    # If your model expects numeric encodings for gender/class/type_of_travel -> convert here
-    # But best approach: load preprocessor pipeline used in training (see below)
-    return features
+    return [encode_value(payload.get(f)) for f in FEATURE_ORDER]
 
 def predict_with_model(app, features):
     model = app.state.model
@@ -63,13 +67,13 @@ def predict_with_model(app, features):
 async def predict_endpoint(payload: PassengerInput, request: Request):
     app = request.app
 
-    # 1. Preprocess
+    # 1️⃣ Preprocess
     try:
         features = preprocess_input(payload.dict(by_alias=True))
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Preprocessing error: {e}")
 
-    # 2. Predict
+    # 2️⃣ Predict
     try:
         predicted_label, predicted_proba = predict_with_model(app, features)
     except RuntimeError as e:
@@ -77,10 +81,19 @@ async def predict_endpoint(payload: PassengerInput, request: Request):
 
     model_version = getattr(app.state, "model_version", None)
 
-    # 3. Persist in background (don't block response)
-    # schedule an async task in event loop
+    # 3️⃣ Save asynchronously
     asyncio.create_task(
         save_prediction(payload.dict(by_alias=True), predicted_label, predicted_proba, model_version)
     )
 
-    return PredictionResponse(predicted_label=predicted_label, predicted_proba=predicted_proba, model_version=model_version)
+    label_mapping = {
+        0: "neutral or dissatisfied",
+        1: "satisfied"
+    }
+
+    return PredictionResponse(
+        predicted_label=predicted_label,
+        satisfaction=label_mapping.get(int(predicted_label), "Unknown"),
+        predicted_proba=predicted_proba,
+        model_version=model_version
+    )
