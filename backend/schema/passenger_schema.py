@@ -7,20 +7,28 @@ from backend.models.enums import GenderTypeEnum, class_type_enum
 
 class PassengerInput(BaseModel):
     passenger_id: Optional[str] = None
-    gender: Union[GenderTypeEnum, str]
+    gender: Optional[str] = None
     customer_type: Optional[str] = None
     age: Optional[int] = None
-    class_type: Union[class_type_enum, str] = Field(None, alias="class")
+    type_of_travel: Optional[str] = None
+    class_type: Optional[str] = Field(None, alias="class")
     flight_distance: Optional[float] = None
-    departure_delay: Optional[float] = None
-    arrival_delay: Optional[float] = None
-
-    seat_comfort: Optional[float] = None
+    inflight_wifi_service: Optional[float] = None
+    departure_arrival_time_convenient: Optional[float] = None
+    ease_of_online_booking: Optional[float] = None
+    gate_location: Optional[float] = None
     food_and_drink: Optional[float] = None
+    online_boarding: Optional[float] = None
+    seat_comfort: Optional[float] = None
     inflight_entertainment: Optional[float] = None
-    cleanliness: Optional[float] = None
+    on_board_service: Optional[float] = None
+    leg_room_service: Optional[float] = None
     baggage_handling: Optional[float] = None
     checkin_service: Optional[float] = None
+    inflight_service: Optional[float] = None
+    cleanliness: Optional[float] = None
+    departure_delay_minutes: Optional[float] = Field(None, alias="Departure Delay in Minutes")
+    arrival_delay_minutes: Optional[float] = Field(None, alias="Arrival Delay in Minutes")
 
     @validator("gender")
     def validate_gender(cls, value):
@@ -39,20 +47,29 @@ class PassengerInput(BaseModel):
         allow_population_by_field_name = True
         schema_extra = {
             "example": {
-                "passenger_id": "pax_123",
+                "passenger_id": "pax_001",
                 "gender": "Male",
                 "customer_type": "Loyal Customer",
                 "age": 34,
-                "class": "Economy",
+                "type_of_travel": "Business travel",
+                "class": "Business",
                 "flight_distance": 500,
-                "departure_delay": 10,
-                "arrival_delay": 5,
-                "seat_comfort": 4.0,
-                "food_and_drink": 3.0,
-                "inflight_entertainment": 4.0,
-                "cleanliness": 4.0,
-                "baggage_handling": 3.0,
-                "checkin_service": 4.0
+                "inflight_wifi_service": 4,
+                "departure_arrival_time_convenient": 4,
+                "ease_of_online_booking": 3,
+                "gate_location": 3,
+                "food_and_drink": 3,
+                "online_boarding": 4,
+                "seat_comfort": 4,
+                "inflight_entertainment": 3,
+                "on_board_service": 4,
+                "leg_room_service": 3,
+                "baggage_handling": 3,
+                "checkin_service": 4,
+                "inflight_service": 4,
+                "cleanliness": 4,
+                "Departure Delay in Minutes": 10,
+                "Arrival Delay in Minutes": 5
             }
         }
 

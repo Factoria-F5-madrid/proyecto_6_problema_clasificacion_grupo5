@@ -8,22 +8,36 @@ router = APIRouter()
 
 def preprocess_input(payload: dict) -> list:
     """
-    Convert input dict to model-ready feature vector.
-    IMPORTANT: implement your exact preprocessing here (encoders, scalers, column order).
-    This is a simple placeholder.
+    Return features in the exact order used at training.
     """
+    # ejemplo de orden: ajusta a tu X_train.columns
     features = [
+        payload.get("gender"),
+        payload.get("customer_type"),
         payload.get("age") or 0,
+        payload.get("type_of_travel"),
+        payload.get("class") or payload.get("class_type"),
         payload.get("flight_distance") or 0.0,
-        payload.get("departure_delay") or 0.0,
-        payload.get("arrival_delay") or 0.0,
-        payload.get("seat_comfort") or 0.0,
+        payload.get("inflight_wifi_service") or 0.0,
+        payload.get("departure_arrival_time_convenient") or 0.0,
+        payload.get("ease_of_online_booking") or 0.0,
+        payload.get("gate_location") or 0.0,
         payload.get("food_and_drink") or 0.0,
+        payload.get("online_boarding") or 0.0,
+        payload.get("seat_comfort") or 0.0,
         payload.get("inflight_entertainment") or 0.0,
-        payload.get("cleanliness") or 0.0,
+        payload.get("on_board_service") or 0.0,
+        payload.get("leg_room_service") or 0.0,
         payload.get("baggage_handling") or 0.0,
-        payload.get("checkin_service") or 0.0
+        payload.get("checkin_service") or 0.0,
+        payload.get("inflight_service") or 0.0,
+        payload.get("cleanliness") or 0.0,
+        payload.get("Departure Delay in Minutes") or payload.get("departure_delay_minutes") or 0.0,
+        payload.get("Arrival Delay in Minutes") or payload.get("arrival_delay_minutes") or 0.0
     ]
+
+    # If your model expects numeric encodings for gender/class/type_of_travel -> convert here
+    # But best approach: load preprocessor pipeline used in training (see below)
     return features
 
 def predict_with_model(app, features):
