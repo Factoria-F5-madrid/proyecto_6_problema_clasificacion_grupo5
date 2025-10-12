@@ -11,3 +11,5 @@ jupyterlab
 ipykernel
 tabulate
 missingno
+plotly
+joblib

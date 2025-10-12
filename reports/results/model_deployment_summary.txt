@@ -1,0 +1,18 @@
+=========================================
+📦 PROYECTO: Satisfacción de Clientes - Modelo Final
+=========================================
+
+🕒 Fecha de ejecución: 2025-10-12 12:05:54
+🏆 Modelo ganador original: Random Forest GridSearchCV
+📁 Modelo desplegado: ../models/deployed/model_random_forest_gridsearchcv_deployed.pkl
+
+🔍 COMPARATIVA DE MÉTRICAS:
+  Métrica  Original (todas las variables)  Top 10 variables  Diferencia (%)
+ Accuracy                        0.961696          0.953804           -0.82
+Precision                        0.964468          0.952017           -1.29
+   Recall                        0.946474          0.940811           -0.60
+ F1-score                        0.955386          0.946381           -0.94
+  ROC-AUC                        0.994044          0.991887           -0.22
+
+📋 CONCLUSIÓN AUTOMÁTICA:
+✅ **Conclusión:** El modelo reducido mantiene un rendimiento prácticamente idéntico al modelo original (**ΔF1 = -0.94%**, **ΔROC-AUC = -0.22%**). Se recomienda desplegar **el modelo con las 10 variables más importantes**, ubicado en `../models/deployed/model_random_forest_gridsearchcv_deployed.pkl`.
