@@ -32,6 +32,7 @@ notebooks/.ipynb_checkpoints/
 .vscode/
 .DS_Store
 Thumbs.db
+models/*.pkl
 
 
 
@@ -56,7 +57,43 @@ venv.bak/
 !data/processed/y_t*.csv
 !data/processed/model_comparison_data.csv
 
+# =====================================
+# 🧠 MODELOS DE MACHINE LEARNING
+# =====================================
+# Ignorar todos los modelos intermedios
+/models/*.pkl
+/models/final/*.pkl
+/models/optuna/*.pkl
+/models/gridsearch/*.pkl
+/models/randomized/*.pkl
+/models/baseline/*.pkl
 
+# ✅ Excepciones: modelos finales y de despliegue
+!/models/final/model_final_*.pkl
+!/models/deployed/model_*_deployed.pkl
+
+# =====================================
+# 📦 DATOS Y ARCHIVOS TEMPORALES
+# =====================================
+/data/raw/*
+/data/interim/*
+/data/processed/*.csv
+!/data/processed/X_test_scaled.csv
+!/data/processed/y_test.csv
+!.gitkeep
+
+# =====================================
+# 📊 REPORTES Y RESULTADOS
+# =====================================
+/reports/metrics/*.json
+/reports/metrics/*.csv
+/reports/results/*.csv
+/reports/results/*.json
+/reports/feature_importance/*.csv
+!/reports/results/model_feature_reduction_comparison.csv
+!/reports/results/model_comparison_summary.json
+!/reports/results/model_deployment_summary.txt
+!.gitkeep
 
 
 #models/*.pkl
@@ -77,4 +114,11 @@ src/**/__pycache__/
 *.jpeg
 *.gif
 
+# ✅ EXCEPCIONES: solo subir las imágenes guardadas a propósito en reports/
+!/reports/feature_importance/*.png
+!/reports/results/*.png
+!/reports/visuals/*.png
 
+# No ignorar readme explicativos
+!*.txt
+!.gitkeep
