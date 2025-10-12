@@ -1,0 +1,74 @@
+[
+    {
+        "Model": "Random Forest GridSearchCV",
+        "Accuracy": 0.9616957797988547,
+        "Precision": 0.9644675794953038,
+        "Recall": 0.9464741810105497,
+        "F1-score": 0.9553861674700146,
+        "ROC-AUC": 0.9940443526241461,
+        "Mean_Score": 0.9644136120797737
+    },
+    {
+        "Model": "Decision Tree (optuna)",
+        "Accuracy": 0.9511091862759251,
+        "Precision": 0.9541785105173394,
+        "Recall": 0.9319267073847862,
+        "F1-score": 0.9429213483146067,
+        "ROC-AUC": 0.9863293744945439,
+        "Mean_Score": 0.9532930253974403
+    },
+    {
+        "Model": "Decision Tree",
+        "Accuracy": 0.9451903180790144,
+        "Precision": 0.9332452081956378,
+        "Recall": 0.9408106607440311,
+        "F1-score": 0.9370126638279047,
+        "ROC-AUC": 0.944675031458972,
+        "Mean_Score": 0.940186776461112
+    },
+    {
+        "Model": "Decision Tree (baseline)",
+        "Accuracy": 0.9451903180790144,
+        "Precision": 0.9332452081956378,
+        "Recall": 0.9408106607440311,
+        "F1-score": 0.9370126638279047,
+        "ROC-AUC": 0.944675031458972,
+        "Mean_Score": 0.940186776461112
+    },
+    {
+        "Model": "Decision Tree (gridsearchcv)",
+        "Accuracy": 0.9437948125691737,
+        "Precision": 0.9316003965194405,
+        "Recall": 0.9392559689061633,
+        "F1-score": 0.9354125193541252,
+        "ROC-AUC": 0.9432607969530816,
+        "Mean_Score": 0.938664898860397
+    },
+    {
+        "Model": "Logistic Regression (Optuna)",
+        "Accuracy": 0.8697367787883162,
+        "Precision": 0.8413180143073922,
+        "Recall": 0.8619655746807329,
+        "F1-score": 0.8515166474685975,
+        "ROC-AUC": 0.928279192341815,
+        "Mean_Score": 0.8705632415173709
+    },
+    {
+        "Model": "Logistic Regression (Gridsearchcv)",
+        "Accuracy": 0.8698811414272652,
+        "Precision": 0.8422596414991852,
+        "Recall": 0.8609661299278178,
+        "F1-score": 0.8515101592531577,
+        "ROC-AUC": 0.9281392866734663,
+        "Mean_Score": 0.8705512717561785
+    },
+    {
+        "Model": "Logistic Regression (Baseline)",
+        "Accuracy": 0.8694961743900679,
+        "Precision": 0.8408623117755389,
+        "Recall": 0.8619655746807329,
+        "F1-score": 0.8512831761351174,
+        "ROC-AUC": 0.928275891790189,
+        "Mean_Score": 0.8703766257543293
+    }
+]
