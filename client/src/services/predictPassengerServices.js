@@ -1,10 +1,23 @@
-import axios from "axios";
+// client/src/services/predictPassengerServices.js
 
-// aqui ira nuestros servicios en donde haremos peticiones a la API 
-
+// Replace base URL if your backend runs elsewhere
 const BASE_URL = "http://localhost:8000";
 
-export const getPredictPassenger = async (data) => {
-    const response = await axios.post(`${BASE_URL}/predict`, data);
-    return response.data;
-};
+/*
+ predictPassenger:
+ - sends JSON POST to /predict
+ - expects JSON response like { satisfaction: "satisfied", probability: 0.9 }
+*/
+export async function predictPassenger(data) {
+  const res = await fetch(`${BASE_URL}/predict`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const txt = await res.text();
+    throw new Error(txt || "Prediction request failed");
+  }
+  return res.json();
+}

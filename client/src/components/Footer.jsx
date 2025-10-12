@@ -1,9 +1,15 @@
-import React from 'react'
+// client/src/components/Footer.jsx
+import React from "react";
 
-const Footer = () => {
+/*
+ Footer: small footer with copyright and subtle background.
+*/
+export default function Footer() {
   return (
-    <div>Estas en el Footer</div>
-  )
+    <footer className="footer">
+      <div className="footer-inner">
+        <p>© {new Date().getFullYear()} You &amp; Airveryone — Creating calmer flights</p>
+      </div>
+    </footer>
+  );
 }
-
-export default Footer
