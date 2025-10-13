@@ -74,7 +74,7 @@ Desarrollar una solución de *machine learning* que permita anticipar si un clie
 
 ## Resultados clave 
 
-![Comparativa de métricas](https://drive.google.com/file/d/1Tn2pGeBcG9dVkWXt45k69wp3OVAGwbxw/view?usp=drive_link)
+![Comparativa de métricas](../reports/figures/ranking_modelos.png)
 
 ## Resultados Principales:
 Tras comparar el rendimiento de todos los algoritmos:
@@ -169,18 +169,18 @@ Backend: uvicorn backend.main:app --reload
 ## 2. Informe Técnico
 Puedes consultar el Informe Técnico completo con el detalle del análisis, desarrollo y resultados en el siguiente enlace:
 
-- [Descargar Informe Técnico (PDF)](]https://drive.google.com/file/d/1yb47xQjnLmqtx8g-93pkfYVAz_VsuX__/view?usp=drive_link)
+- Descargar Informe Técnico (PDF): ![Informe técnico Passenger Satisfaction](docs/Informe_tecnico_passenger_satisfaction_PVI_Eq3.pdf)
 
 ## 3.  Presentación:
-- [Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- ![Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
 ## 4. Git Projects: 
 
- - [Git Projects](https://drive.google.com/file/d/1oz7ngzBgK7acP5dITp0i9T_0NI33EHuO/view?usp=drive_link)
+ - ![Git Projects](https://drive.google.com/file/d/1oz7ngzBgK7acP5dITp0i9T_0NI33EHuO/view?usp=drive_link)
 
 ## 5. Otros: 
-- [Carpeta en la que organizamos entregables](https://drive.google.com/drive/folders/1-uul70XgQp3TDPcD-CMsN2Bbi8kcHG2_?usp=sharing)
+- ![Carpeta en la que organizamos entregables](https://drive.google.com/drive/folders/1-uul70XgQp3TDPcD-CMsN2Bbi8kcHG2_?usp=sharing)
 
 Encontrarán: 
 
