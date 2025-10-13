@@ -6,21 +6,22 @@ import Home from "./pages/Home";
 import Database from "./pages/Database";
 import Predict from "./pages/Predict";
 import Team from "./pages/Team";
+import Splash from "./pages/Splash";
 
-/*
-  App defines top-level routes. Using Layout wraps pages with Nav + Footer.
-  If you want nested routes or protected routes later, add them here.
-*/
 export default function App() {
   return (
     <Routes>
+      {/* Splash solo se muestra al entrar a la raíz "/" */}
+      <Route path="/" element={<Splash />} />
+
+      {/* Todas las demás páginas dentro del Layout */}
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route path="home" element={<Home />} />
         <Route path="database" element={<Database />} />
         <Route path="predict" element={<Predict />} />
         <Route path="team" element={<Team />} />
-        {/* Redirect unknown paths to home */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* Redirige cualquier ruta desconocida a home */}
+        <Route path="*" element={<Navigate to="/home" replace />} />
       </Route>
     </Routes>
   );
