@@ -104,10 +104,35 @@ Backend API Docs: http://localhost:8000/docs
 - Online Boarding
 - Cleanliness
 ---
-## Informe Técnico
+# Entregables del proyecto: 
+(Da click en cada nombre, te llevará al enlace correspondiente)
+
+## 1. Aplicación: 
+
+
+## 2. Informe Técnico
 Puedes consultar el Informe Técnico completo con el detalle del análisis, desarrollo y resultados en el siguiente enlace:
 
 . 📄 Descargar Informe Técnico (PDF)
+
+## 3.  Presentación:
+[Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+
+## 4. Git Projects: 
+
+ 
+
+## 5. Otros: 
+- [Carpeta en la que organizamos entregables](https://drive.google.com/drive/folders/1-uul70XgQp3TDPcD-CMsN2Bbi8kcHG2_?usp=sharing)
+
+Encontrán: 
+
+- Guión
+- Fondo de Zoom
+- Documento de redacción para informe técnico
+- Actas de reunión, enlazadas a Git Project
+
 ---
 
 ## Equipo
