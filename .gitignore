@@ -119,8 +119,6 @@ src/**/__pycache__/
 !/reports/results/*.png
 !/reports/visuals/*.png
 !/client/src/assets/hero.png
-!/docs/Informe_tecnico_passenger_satisfaction_PVI_Eq3.pdf
-!/reports/figures/ranking_modelos.png
 Nota.txt
 requirements.txt
 # No ignorar readme explicativos

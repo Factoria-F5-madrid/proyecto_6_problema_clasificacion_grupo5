@@ -19,16 +19,16 @@ Desarrollar una solución de *machine learning* que permita anticipar si un clie
 ## Flujo de Desarrollo
 
 1. **Análisis Exploratorio (EDA)**  (`01_EDA-preprocessing.ipynb`)
-	- Estudio del dataset público de *Airline Passenger Satisfaction (Kaggle)*.  
-    - Limpieza, imputación de valores nulos y codificación categórica.  
-    - Visualización de correlaciones clave.
+   - Estudio del dataset público de *Airline Passenger Satisfaction (Kaggle)*.  
+   - Limpieza, imputación de valores nulos y codificación categórica.  
+   - Visualización de correlaciones clave.
 
 2. **Preprocesamiento de Datos**  (`02_dataset-split.ipynb`)
-	- Creación de conjuntos train y test (80/20).
+   - Creación de conjuntos train y test (80/20).
 	- Generación de versiones escaladas (para modelos basados en distancia) y no escaladas (para árboles).
  
 3. **Entrenamiento y Selección del Modelo**  
-    - Cada algoritmo se trabajó en un notebook independiente, aplicando:
+   - Cada algoritmo se trabajó en un notebook independiente, aplicando:
 	- Modelo base (baseline).
 	- Validación cruzada (k-folds).
 	- Optimización con GridSearchCV, RandomizedSearchCV y Optuna.
@@ -60,42 +60,42 @@ Desarrollar una solución de *machine learning* que permita anticipar si un clie
       -  Decision Tree
       -  Random Forest
       -  XGBoost
-	-  Cada modelo se entrena en tres fases: baseline, GridSearchCV y Optuna tuning.
 
-4. **Comparación resultados** 
-	- Se comparan los resultados mediante un notebook de comparación global.
+	   -  Cada modelo se entrena en tres fases: baseline, GridSearchCV y Optuna tuning.
 
-5. **Test Set Final**
-	-  El mejor modelo se evalúa en el Test Set Final 
-	
-6. **Reentrenamiento del mejor modelo seleccionado**
-	- Se reentrena con las 10 variables más importantes para optimizar la interpretabilidad.
+-  Se comparan los resultados mediante un notebook de comparación global.
+-  El mejor modelo se evalúa en el Test Set Final y se reentrena con las 10 variables más importantes para optimizar la interpretabilidad.
 
 
 ## Resultados clave 
 
-![Comparativa de métricas](../reports/figures/ranking_modelos.png)
+![Comparativa de métricas](https://drive.google.com/uc?export=view&id=1Tn2pGeBcG9dVkWXt45k69wp3OVAGwbxw)
+
+
+![Ranking de modelos](https://drive.google.com/uc?export=view&id=18AtSzBQbz6opLnc02UX7SeAuMYPQATh4)
+
+
 
 ## Resultados Principales:
 Tras comparar el rendimiento de todos los algoritmos:
-- El `Random Forest` optimizado con `GridSearchCV` obtiene el mejor rendimiento global, con una media de métricas (Mean Score) de `0.956`, superando a los demás modelos.
-- El XGBoost con Optuna logra valores muy competitivos, especialmente en F1-score y ROC-AUC, pero con una ligera menor estabilidad.
-- Las 10 variables más relevantes fueron determinadas mediante feature importance, y con ellas se reentrenó el modelo final para producción.
+•	El `Random Forest` optimizado con `GridSearchCV` obtiene el mejor rendimiento global, con una media de métricas (Mean Score) de `0.956`, superando a los demás modelos.
+•	El XGBoost con Optuna logra valores muy competitivos, especialmente en F1-score y ROC-AUC, pero con una ligera menor estabilidad.
+•	Las 10 variables más relevantes fueron determinadas mediante feature importance, y con ellas se reentrenó el modelo final para producción.
 
 
 ## Justificación sobre la elección de la elección del mejor modelo:  
 
 Aunque XGBoost (Optuna) obtuvo el Mean Score más alto, **el modelo seleccionado como ganador** fue **Random Forest (GridSearchCV)**, debido a su:
-- Mayor **estabilidad** entre validaciones cruzadas,
-- **Mejor rendimiento** en el conjunto de test (generalización),
-- Y una **interpretabilidad** más clara para el análisis de las variables.
+•	Mayor **estabilidad** entre validaciones cruzadas,
+•	**Mejor rendimiento** en el conjunto de test (generalización),
+•	Y una **interpretabilidad** más clara para el análisis de las variables.
 
 
 
-## Productivización y Despliegue 
-- Backend con **FastAPI**: endpoint `/predict` que recibe JSON y devuelve predicción.  
-- Frontend en **React + Tailwind** con formulario intuitivo.  
-- Base de datos **PostgresSQL**.
+4. **Productivización y Despliegue**  
+   - Backend con **FastAPI**: endpoint `/predict` que recibe JSON y devuelve predicción.  
+   - Frontend en **React + Tailwind** con formulario intuitivo.  
+   - Base de datos **PostgreSQL**.
 
 ---
 
@@ -169,18 +169,18 @@ Backend: uvicorn backend.main:app --reload
 ## 2. Informe Técnico
 Puedes consultar el Informe Técnico completo con el detalle del análisis, desarrollo y resultados en el siguiente enlace:
 
-- Descargar Informe Técnico (PDF): ![Informe técnico Passenger Satisfaction](docs/Informe_tecnico_passenger_satisfaction_PVI_Eq3.pdf)
+- [📄 Descargar Informe Técnico (PDF)](https://drive.google.com/uc?export=download&id=1yb47xQjnLmqtx8g-93pkfYVAz_VsuX__)
 
 ## 3.  Presentación:
-- ![Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
 ## 4. Git Projects: 
 
- - ![Git Projects](https://drive.google.com/file/d/1oz7ngzBgK7acP5dITp0i9T_0NI33EHuO/view?usp=drive_link)
+ - [Git Projects](https://drive.google.com/file/d/1oz7ngzBgK7acP5dITp0i9T_0NI33EHuO/view?usp=drive_link)
 
 ## 5. Otros: 
-- ![Carpeta en la que organizamos entregables](https://drive.google.com/drive/folders/1-uul70XgQp3TDPcD-CMsN2Bbi8kcHG2_?usp=sharing)
+- [Carpeta en la que organizamos entregables](https://drive.google.com/drive/folders/1-uul70XgQp3TDPcD-CMsN2Bbi8kcHG2_?usp=sharing)
 
 Encontrarán: 
 
