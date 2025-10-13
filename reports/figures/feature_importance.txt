@@ -1,0 +1,40 @@
+(este archivo se elminara , es para que se suba la carpeta)
+📂 reports/figures/ → ejemplos de lo que puedes guardar
+
+Matriz de confusión
+
+confusion_matrix.png
+
+Muestra cómo clasifica el modelo vs. la verdad.
+
+Curvas ROC y Precision-Recall
+
+roc_curve.png
+
+precision_recall_curve.png
+
+Sirven para evaluar rendimiento en datasets desbalanceados.
+
+Feature importance (importancia de variables)
+
+feature_importance.png
+
+Muy útil para explicar qué factores influyen más en la satisfacción de pasajeros.
+
+Learning curves / validation curves
+
+learning_curve.png
+
+validation_curve.png
+
+Muestran si el modelo está sobreajustando o no (ideal para justificar que el overfitting < 5%).
+
+Distribuciones de predicciones
+
+prediction_distribution.png
+
+Para ver si hay sesgos (ej. el modelo predice demasiados “satisfecho” frente a “insatisfecho”).
+
+EDA final relevante (opcional)
+
+Aunque el EDA inicial va en notebooks/, a veces conviene guardar aquí figuras “finales” que se usan en el informe o presentación (ej: histograma de edades, correlación de variables).

@@ -1,0 +1,1 @@
+# variables globales (paths, nombres de archivos, etc.).

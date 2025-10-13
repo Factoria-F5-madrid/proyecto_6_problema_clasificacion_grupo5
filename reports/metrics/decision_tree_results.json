@@ -1,0 +1,16 @@
+{
+    "model": "Decision Tree",
+    "best_params": {
+        "criterion": "gini",
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2
+    },
+    "metrics": {
+        "Accuracy": 0.9451903180790144,
+        "Precision": 0.9332452081956378,
+        "Recall": 0.9408106607440311,
+        "F1-score": 0.9370126638279047,
+        "ROC-AUC": 0.944675031458972
+    }
+}

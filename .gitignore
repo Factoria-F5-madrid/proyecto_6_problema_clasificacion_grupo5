@@ -1,0 +1,126 @@
+# C extensions
+*.so
+
+# Distribution / packaging 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.egg-info/
+.dist-info/
+build/
+dist/
+
+
+
+# Scrapy stuff:
+.scrapy
+
+# ==== MODELOS Y RESULTADOS (solo en futuro) ====
+# models/
+# reports/results/
+# *.pkl
+# *.json
+
+# --- Jupyter / VSCode / OS ---
+.ipynb_checkpoints/
+.notebook_cache/
+notebooks/.ipynb_checkpoints/
+.vscode/
+.DS_Store
+Thumbs.db
+models/*.pkl
+
+
+
+# Environments / Python / Virtual entornos
+.env
+.envrc
+.venv
+.venv/
+.uv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Dataframes / datasets
+# data/*.csv                    # COMENTA estas líneas
+# data/processed/*.csv          # COMENTA estas líneas
+!data/airline_passenger_satisfaction.csv
+!data/processed/cleaned_airline_passenger_satisfaction.csv
+!data/processed/X_t*.csv
+!data/processed/y_t*.csv
+!data/processed/model_comparison_data.csv
+
+# =====================================
+# 🧠 MODELOS DE MACHINE LEARNING
+# =====================================
+# Ignorar todos los modelos intermedios
+/models/*.pkl
+/models/final/*.pkl
+/models/optuna/*.pkl
+/models/gridsearch/*.pkl
+/models/randomized/*.pkl
+/models/baseline/*.pkl
+
+# ✅ Excepciones: modelos finales y de despliegue
+!/models/final/model_final_*.pkl
+!/models/deployed/model_*_deployed.pkl
+
+# =====================================
+# 📦 DATOS Y ARCHIVOS TEMPORALES
+# =====================================
+/data/raw/*
+/data/interim/*
+/data/processed/*.csv
+!/data/processed/X_test_scaled.csv
+!/data/processed/y_test.csv
+!.gitkeep
+
+# =====================================
+# 📊 REPORTES Y RESULTADOS
+# =====================================
+/reports/metrics/*.json
+/reports/metrics/*.csv
+/reports/results/*.csv
+/reports/results/*.json
+/reports/feature_importance/*.csv
+!/reports/results/model_feature_reduction_comparison.csv
+!/reports/results/model_comparison_summary.json
+!/reports/results/model_deployment_summary.txt
+!.gitkeep
+
+
+#models/*.pkl
+*.joblib
+
+
+# -------- Src --------
+src/**/__pycache__/
+
+# --- Logs / temporales ---
+*.log
+*.tmp
+*.cache/
+
+# --- Gráficos / imágenes ---
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# ✅ EXCEPCIONES: solo subir las imágenes guardadas a propósito en reports/
+!/reports/feature_importance/*.png
+!/reports/results/*.png
+!/reports/visuals/*.png
+!/client/src/assets/hero.png
+Nota.txt
+requirements.txt
+# No ignorar readme explicativos
+!*.txt
+!.gitkeep
