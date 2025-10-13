@@ -69,7 +69,12 @@ Desarrollar una solución de *machine learning* que permita anticipar si un clie
 
 ## Resultados clave 
 
-![Comparativa de métricas](https://drive.google.com/file/d/1Tn2pGeBcG9dVkWXt45k69wp3OVAGwbxw/view?usp=sharing)
+![Comparativa de métricas](https://drive.google.com/uc?export=view&id=1Tn2pGeBcG9dVkWXt45k69wp3OVAGwbxw)
+
+
+![Ranking de modelos](https://drive.google.com/uc?export=view&id=18AtSzBQbz6opLnc02UX7SeAuMYPQATh4)
+
+
 
 ## Resultados Principales:
 Tras comparar el rendimiento de todos los algoritmos:
@@ -164,7 +169,7 @@ Backend: uvicorn backend.main:app --reload
 ## 2. Informe Técnico
 Puedes consultar el Informe Técnico completo con el detalle del análisis, desarrollo y resultados en el siguiente enlace:
 
-- [📄 Descargar Informe Técnico (PDF)](]https://drive.google.com/file/d/1yb47xQjnLmqtx8g-93pkfYVAz_VsuX__/view?usp=drive_link)
+- [📄 Descargar Informe Técnico (PDF)](https://drive.google.com/uc?export=download&id=1yb47xQjnLmqtx8g-93pkfYVAz_VsuX__)
 
 ## 3.  Presentación:
 - [Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
