@@ -6,7 +6,7 @@
 
 Este proyecto fue desarrollado dentro del **Bootcamp de Inteligencia Artificial de Factoría F5**, con el objetivo de construir un sistema capaz de **predecir la satisfacción de los clientes de una aerolínea** a partir de variables relacionadas con el servicio, el tipo de viaje y la experiencia del pasajero.
 
-El sistema integra un modelo de clasificación basado en **XGBoost** dentro de una aplicación **web interactiva** con **FastAPI (backend)** y **React + TailwindCSS (frontend)**, desplegable mediante **Docker**.
+El sistema integra un modelo de clasificación basado en **Random Forest GridSearchCV** dentro de una aplicación **web interactiva** con **FastAPI (backend)** y **React + TailwindCSS (frontend)**.
 
 ---
 
@@ -18,25 +18,79 @@ Desarrollar una solución de *machine learning* que permita anticipar si un clie
 
 ## Flujo de Desarrollo
 
-1. **Análisis Exploratorio (EDA)**  
+1. **Análisis Exploratorio (EDA)**  (`01_EDA-preprocessing.ipynb`)
    - Estudio del dataset público de *Airline Passenger Satisfaction (Kaggle)*.  
    - Limpieza, imputación de valores nulos y codificación categórica.  
    - Visualización de correlaciones clave.
 
-2. **Preprocesamiento de Datos**  
-   - Escalado de variables numéricas con `MinMaxScaler`.  
-   - Balanceo de clases con `SMOTE`.  
-   - División en *train/test* (80/20).
-
+2. **Preprocesamiento de Datos**  (`02_dataset-split.ipynb`)
+   - Creación de conjuntos train y test (80/20).
+	- Generación de versiones escaladas (para modelos basados en distancia) y no escaladas (para árboles).
+ 
 3. **Entrenamiento y Selección del Modelo**  
-   - Algoritmos evaluados: Logistic Regression, Random Forest, XGBoost.  
-   - Métricas: Accuracy, Precision, Recall, F1-score y ROC-AUC.  
-   - Modelo final: **XGBoost (F1-score: 0.89, Accuracy: 0.91)**.
+   - Cada algoritmo se trabajó en un notebook independiente, aplicando:
+	- Modelo base (baseline).
+	- Validación cruzada (k-folds).
+	- Optimización con GridSearchCV, RandomizedSearchCV y Optuna.
+
+	- Modelos analizados (notebooks `03_<algoritrmo>.ipynb`):
+	   - Regresión Logística
+	   - K-Nearest Neighbors (KNN)
+	   - Árbol de Decisión
+	   - Random Forest
+	   - XGBoost
+
+	- Comparación de modelos (notebook `04_ModelComparison.ipynb`) con métricas estandarizadas:
+	   - Consolidación de métricas: Accuracy, Precision, Recall, F1-score y ROC-AUC.
+	   - Cálculo de un Mean Score global y ranking final.
+	   - Selección del mejor modelo.
+
+	- Evaluación final (notebook `05_Test-Set-Final.ipynb`) con el mejor modelo
+	   - Test sobre datos no vistos.
+	   - Obtención de métricas finales, matriz de confusión y curva ROC.
+
+	- Reentrenamiento con el mejor modelo y análisis de variables (notebook `06_FeatureImportanceSelection.ipynb`) para producción.
+	   - Cálculo de feature importance.
+	   - Entrenamiento del modelo ganador con las 10 variables más influyentes.
+	   - Exportación del modelo final para producción.
+
+   - Se entrenan varios modelos supervisados, cada uno en su notebook correspondiente:
+      -  Logistic Regression
+      -  K-Nearest Neighbors (KNN)
+      -  Decision Tree
+      -  Random Forest
+      -  XGBoost
+
+	   -  Cada modelo se entrena en tres fases: baseline, GridSearchCV y Optuna tuning.
+
+-  Se comparan los resultados mediante un notebook de comparación global.
+-  El mejor modelo se evalúa en el Test Set Final y se reentrena con las 10 variables más importantes para optimizar la interpretabilidad.
+
+
+## Resultados clave 
+
+![Comparativa de métricas](https://drive.google.com/file/d/1Tn2pGeBcG9dVkWXt45k69wp3OVAGwbxw/view?usp=sharing)
+
+## Resultados Principales:
+Tras comparar el rendimiento de todos los algoritmos:
+•	El `Random Forest` optimizado con `GridSearchCV` obtiene el mejor rendimiento global, con una media de métricas (Mean Score) de `0.956`, superando a los demás modelos.
+•	El XGBoost con Optuna logra valores muy competitivos, especialmente en F1-score y ROC-AUC, pero con una ligera menor estabilidad.
+•	Las 10 variables más relevantes fueron determinadas mediante feature importance, y con ellas se reentrenó el modelo final para producción.
+
+
+## Justificación sobre la elección de la elección del mejor modelo:  
+
+Aunque XGBoost (Optuna) obtuvo el Mean Score más alto, **el modelo seleccionado como ganador** fue **Random Forest (GridSearchCV)**, debido a su:
+•	Mayor **estabilidad** entre validaciones cruzadas,
+•	**Mejor rendimiento** en el conjunto de test (generalización),
+•	Y una **interpretabilidad** más clara para el análisis de las variables.
+
+
 
 4. **Productivización y Despliegue**  
    - Backend con **FastAPI**: endpoint `/predict` que recibe JSON y devuelve predicción.  
    - Frontend en **React + Tailwind** con formulario intuitivo.  
-   - Contenedores **Docker** (frontend + backend) orquestados con `docker-compose`.
+   - Base de datos **PostgreSQL**.
 
 ---
 
@@ -47,7 +101,7 @@ Frontend (React + Tailwind)
         ↓
 Backend (FastAPI + Pydantic)
         ↓
-Modelo (XGBoost .pkl)
+Modelo (Random Forest GridSearchCV .pkl)
 
 ``` 
 
@@ -56,7 +110,7 @@ Modelo (XGBoost .pkl)
 🔧 Requisitos
 - Python ≥ 3.10
 - Node.js ≥ 18
-- Docker & Docker Compose
+
 
 ---
 ## Pasos
@@ -66,43 +120,40 @@ Clonar el repositorio
 git clone https://github.com/<usuario>/<repositorio>.git
 cd <repositorio>
 ``` 
-Construir y ejecutar con Docker
-```plaintext
-docker-compose up --build
-``` 
 Acceder a la aplicación web
 ```plaintext
-Frontend: http://localhost:3000
+Frontend: cd client && npm run dev
 Backend API Docs: http://localhost:8000/docs
+
+Levantar el servidor 
+Backend: uvicorn backend.main:app --reload
 ```
+
+
 ---
 ## Tecnologías Principales
 
-| Componente      | Tecnología                           |
-| --------------- | ------------------------------------ |
-| Backend         | FastAPI, Pydantic                    |
-| Frontend        | React, TailwindCSS                   |
-| Modelo ML       | XGBoost, scikit-learn                |
-| Infraestructura | Docker, Docker Compose               |
-| Colaboración    | GitHub          Conventional Commits |
-
----
-## Resultados clave 
-
-| Métrica   | Valor |
-| --------- | ----- |
-| Accuracy  | 0.91  |
-| Precision | 0.90  |
-| Recall    | 0.88  |
-| F1-score  | 0.89  |
-| ROC-AUC   | 0.94  |
+| Componente      | Tecnología                                 |
+| --------------- | ------------------------------------------ |
+| Backend         | FastAPI, Pydantic, Alembic, PostgreSQL     |
+| Frontend        | React, TailwindCSS, vite                   |
+| Modelo ML       | Logistic Regression, KNN, Decision Tree    |
+|                 | Random Forest, XGBoost, scikit-learn       |
+| Colaboración    | GitHub, Git Projects  Conventional Commits |
 
 ---
 ## Variables más influyentes:
 - Inflight Service
-- Seat Comfort
+- Customer Type
 - Online Boarding
+- Checking Service
+- Baggage Handling
+- Seat Comfort
+- Class
 - Cleanliness
+- OnBoard Service
+- Inflight Wifi Service
+
 ---
 # Entregables del proyecto: 
 (Da click en cada nombre, te llevará al enlace correspondiente)
@@ -113,20 +164,20 @@ Backend API Docs: http://localhost:8000/docs
 ## 2. Informe Técnico
 Puedes consultar el Informe Técnico completo con el detalle del análisis, desarrollo y resultados en el siguiente enlace:
 
-. 📄 Descargar Informe Técnico (PDF)
+- [📄 Descargar Informe Técnico (PDF)](]https://drive.google.com/file/d/1yb47xQjnLmqtx8g-93pkfYVAz_VsuX__/view?usp=drive_link)
 
 ## 3.  Presentación:
-[Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Presentación comercial y técnica](https://www.canva.com/design/DAG1AK9ch5Q/rnldsVgfWjZABMhU52n23g/edit?utm_content=DAG1AK9ch5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
 ## 4. Git Projects: 
 
- 
+ - [Git Projects](https://drive.google.com/file/d/1oz7ngzBgK7acP5dITp0i9T_0NI33EHuO/view?usp=drive_link)
 
 ## 5. Otros: 
 - [Carpeta en la que organizamos entregables](https://drive.google.com/drive/folders/1-uul70XgQp3TDPcD-CMsN2Bbi8kcHG2_?usp=sharing)
 
-Encontrán: 
+Encontrarán: 
 
 - Guión
 - Fondo de Zoom
