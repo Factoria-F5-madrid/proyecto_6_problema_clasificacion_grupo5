@@ -118,7 +118,8 @@ src/**/__pycache__/
 !/reports/feature_importance/*.png
 !/reports/results/*.png
 !/reports/visuals/*.png
-
+Nota.txt
+requirements.txt
 # No ignorar readme explicativos
 !*.txt
 !.gitkeep
